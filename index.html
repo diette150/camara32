@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitoreo Camara</title>
+    <style>
+        body { font-family: Arial; text-align: center; margin: 50px;}
+        .card { border: 1px solid #ccc; padding: 20px; border-radius: 10px; display: inline-block;}
+    </style>
+</head>
+<body>
+    <h1>Datos en tiempo real</h1>
+    <div class="card">
+        <p><b>Temperatura</b><span id="temp">--</span> ªC</p>
+        <p><b>Humedad</b><span id="hum">--</span> %</p>
+        <p><b>Ciclo</b><span id="ciclo">--</span></p>
+        <p><b>Tiempo restante</b><span id="tiempo">--</span> Seg</p>
+    </div>
+    <script>
+        async function actualizar(){
+            try {
+                const res = await
+                fetch("https://esp32-camara.onrender.com/data");
+                const json = await res.json();
+                document.getElementById("temp").innerText = json.temp;
+                document.getElementById("hum").innerText = json.hum;
+                document.getElementById("ciclo").innerText = json.ciclo;
+                document.getElementById("tiempo").innerText = json.tiempo;
+            } catch (e){
+                console.log("Error", e);
+            } 
+        }
+        setInterval(actualizar, 3000);
+        actualizar();
+    </script>
+</body>
+</html>
