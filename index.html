@@ -6,17 +6,18 @@
     <title>Monitoreo Camara</title>
     <style>
         body { font-family: Arial; text-align: center; margin: 50px;}
-        .card { border: 1px solid #ccc; padding: 20px; border-radius: 10px; display: inline-block;}
+        .card {background-color: black; color: aqua; border:10px solid green; padding: 20px; border-radius: 10px; display: inline-block;}
+    
     </style>
 </head>
 <body>
     <h1>Datos en tiempo real</h1>
     <div class="card">
-        <p><b>Temperatura</b><span id="temp">--</span> ªC</p>
-        <p><b>Humedad</b><span id="hum">--</span> %</p>
+        <p><b>Temperatura....</b>  <span id="temp">--</span> ªC</p>
+        <p><b>Humedad....</b><span id="hum">--</span> %</p>
         <p><b>Ciclo</b><span id="ciclo">--</span></p>
-        <p><b>Tiempo restante</b><span id="tiempo">--</span> Seg</p>
-    </div>
+        <p><b>Tiempo restante....</b><span id="tiempo">--</span> Seg</p>
+    </div> 
     <script>
         async function actualizar(){
             try {
